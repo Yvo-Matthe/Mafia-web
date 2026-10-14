@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Mafia Web: Turf War</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <header id="topbar">
+    <div class="brand">Turf War</div>
+    <div class="stat"><span class="label">Cash</span> <span id="cash">$0</span></div>
+    <div class="stat"><span class="label">Income</span> <span id="income">$0/s</span></div>
+    <div class="stat"><span class="label">Turf</span> <span id="turf">0/24</span></div>
+    <div class="stat"><span class="label">Crew</span> <span id="crew">0/30</span></div>
+    <div class="stat"><span class="label">Time</span> <span id="clock">0:00</span></div>
+    <div class="spacer"></div>
+    <button id="btn-speed" title="Game speed">1x</button>
+    <button id="btn-pause" title="Pause (Space)">Pause</button>
+    <button id="btn-help" title="How to play">?</button>
+  </header>
+
+  <div id="rotate-hint">Turn your phone sideways for a bigger map.</div>
+
+  <footer id="panel">
+    <div id="recruit">
+      <button class="recruit" data-type="thug"><b>Thug</b><span>$100</span><kbd>1</kbd><i class="prog"></i></button>
+      <button class="recruit" data-type="enforcer"><b>Enforcer</b><span>$250</span><kbd>2</kbd><i class="prog"></i></button>
+      <button class="recruit" data-type="hitman"><b>Hitman</b><span>$400</span><kbd>3</kbd><i class="prog"></i></button>
+      <div id="queue"></div>
+    </div>
+    <div id="info"></div>
+    <div id="log"></div>
+  </footer>
+
+  <div id="overlay" class="overlay">
+    <div class="card">
+      <h1>Turf War</h1>
+      <p class="sub">A real-time mafia strategy game</p>
+      <div id="howto">
+        <p>Three rival families want your city. Take it from them.</p>
+        <ul>
+          <li><b>Earn:</b> every block you control pays you cash every second. Open a front business on a block to double its take.</li>
+          <li><b>Recruit:</b> hire Thugs, Enforcers and Hitmen at your headquarters (bottom-left).</li>
+          <li><b>Select:</b> click a unit, or drag a box. <kbd>Q</kbd> selects your whole crew.</li>
+          <li><b>Move:</b> right-click (or tap, on touch screens) to send the selection. They fight anything on the way.</li>
+          <li><b>Capture:</b> stand in a block with no enemies around to take it over.</li>
+          <li><b>Win:</b> take every rival headquarters, or control 18 of the 24 blocks. Lose your own HQ and it's over.</li>
+        </ul>
+        <p class="keys"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> recruit &middot; <kbd>R</kbd> retreat to HQ &middot; <kbd>U</kbd> upgrade block &middot; <kbd>Space</kbd> pause &middot; <kbd>Esc</kbd> deselect</p>
+      </div>
+      <label class="name">Family name <input id="family-name" maxlength="14" value="Vitale"></label>
+      <div class="buttons" id="start-buttons">
+        <button data-diff="easy">Easy</button>
+        <button data-diff="normal" class="primary">Normal</button>
+        <button data-diff="hard">Hard</button>
+      </div>
+      <button id="btn-resume" class="primary hidden">Resume</button>
+    </div>
+  </div>
+
+  <div id="endscreen" class="overlay hidden">
+    <div class="card">
+      <h1 id="end-title"></h1>
+      <p id="end-text"></p>
+      <div class="buttons"><button id="btn-again" class="primary">Play again</button></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
