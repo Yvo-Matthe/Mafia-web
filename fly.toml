@@ -1,0 +1,24 @@
+# Fly.io config. Run `fly launch --copy-config --no-deploy`, then
+# `fly volumes create data --size 1` and `fly deploy`.
+app = "mafia-web"
+primary_region = "ams"
+
+[build]
+
+[env]
+  SECURE_COOKIES = "1"
+
+[[mounts]]
+  source = "data"
+  destination = "/data"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"

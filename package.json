@@ -1,0 +1,17 @@
+{
+  "name": "mafia-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A turn-based multiplayer browser mafia game to play with friends.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
